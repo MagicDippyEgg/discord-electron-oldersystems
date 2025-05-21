@@ -21,7 +21,7 @@
   },
   "build": {
     "appId": "com.magicdippyegg.discordwrapper",
-    "productName": "Discord Wrapper",
+    "productName": "Discord",
     "copyright": "Copyright © 2025 ${author}",
     "directories": {
       "output": "dist"
@@ -35,9 +35,10 @@
     "nsis": {
       "installerIcon": "icon.ico",
       "uninstallerIcon": "icon.ico",
-      "uninstallDisplayName": "Discord Wrapper Uninstaller",
+      "uninstallDisplayName": "Discord Uninstaller",
       "license": "LICENSE.md",
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
     }
   }
 }
