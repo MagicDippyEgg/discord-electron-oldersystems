@@ -11,7 +11,7 @@ function createWindow() {
     minWidth: 800, // Minimum width
     minHeight: 600, // Minimum height
     title: "Discord", // Title of the window
-    icon: path.join(__dirname, 'icon.png'), // Optional: Path to an icon file (you'd need to create this)
+    icon: path.join(__dirname, 'icon.ico'), // Changed from 'icon.png' to 'icon.ico' for consistency
     webPreferences: {
       // preload: path.join(__dirname, 'preload.js'), // Optional: If you need a preload script
       nodeIntegration: false, // It's safer to disable Node.js integration in the renderer
@@ -55,4 +55,13 @@ app.whenReady().then(() => {
       createWindow();
     }
   });
+});
+
+// Quit when all windows are closed, except on macOS. There's, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
 });
