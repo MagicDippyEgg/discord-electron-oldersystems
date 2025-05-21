@@ -1,6 +1,6 @@
 {
   "name": "discord",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Electron Powered Discord Client For Older Systems",
   "main": "main.js",
   "scripts": {
