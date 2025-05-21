@@ -39,7 +39,7 @@ jobs:
 
       - name: List contents of dist directory
         run: |
-          dir dist /s # For Windows runners, 'dir /s' lists contents recursively
+          Get-ChildItem -Path dist -Recurse # Using PowerShell command for recursive listing
         # This step will show us exactly what files are in the 'dist' folder
 
       - name: Create Release and Upload Assets
