@@ -26,6 +26,11 @@
     "directories": {
       "output": "dist"
     },
+    "files": [
+      "main.js",
+      "package.json",
+      "icon.ico"
+    ],
     "win": {
       "target": [
         "nsis"
