@@ -1,0 +1,46 @@
+name: Build Electron App
+
+on:
+  push:
+    tags:
+      - 'v*' # Trigger on tags like v1.0.0, v1.0.1, etc.
+
+jobs:
+  build:
+    runs-on: windows-latest # Use a Windows runner for building Windows executables
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # Action to checkout your repository code
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4 # Action to set up Node.js environment
+        with:
+          node-version: '20' # Use Node.js version 20 (or a recent LTS version)
+
+      - name: Install dependencies
+        run: npm install # Install project dependencies, including electron and electron-builder
+
+      - name: Build Electron app for Windows (64-bit)
+        run: npm run build -- --x64 # Run the build script for 64-bit Windows
+        env:
+          # This is important for electron-builder to upload to GitHub Releases
+          # GITHUB_TOKEN is automatically provided by GitHub Actions
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Electron app for Windows (32-bit)
+        run: npm run build -- --ia32 # Run the build script for 32-bit Windows
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release and Upload Assets
+        uses: softprops/action-gh-release@v2 # Action to create and manage GitHub Releases
+        if: startsWith(github.ref, 'refs/tags/') # Only run if the workflow was triggered by a tag
+        with:
+          files: |
+            dist/*.exe # Upload all .exe files from the 'dist' directory
+            dist/*.zip # Upload any .zip files (e.g., portable versions if configured)
+          name: Release ${{ github.ref_name }} # Name of the release will be the tag name (e.g., v1.0.0)
+          tag_name: ${{ github.ref_name }} # The tag that triggered the workflow
+          draft: false # Set to true if you want to create a draft release first
+          prerelease: false # Set to true if this is a pre-release
