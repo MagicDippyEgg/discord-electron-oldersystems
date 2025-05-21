@@ -4,6 +4,9 @@ const path = require('path');
 let mainWindow; // Declare mainWindow globally to prevent it from being garbage collected
 
 function createWindow() {
+  // Log the user data path to the console for debugging login issues
+  console.log('Electron User Data Path:', app.getPath('userData'));
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1200, // Initial width of the window
@@ -11,7 +14,8 @@ function createWindow() {
     minWidth: 800, // Minimum width
     minHeight: 600, // Minimum height
     title: "Discord", // Title of the window
-    icon: path.join(__dirname, 'icon.ico'), // Changed from 'icon.png' to 'icon.ico' for consistency
+    icon: path.join(__dirname, 'icon.ico'), // Path to the application icon
+    autoHideMenuBar: true, // Hides the menu bar by default (reappears on Alt key press)
     webPreferences: {
       // preload: path.join(__dirname, 'preload.js'), // Optional: If you need a preload script
       nodeIntegration: false, // It's safer to disable Node.js integration in the renderer

@@ -20,8 +20,8 @@
     "electron-builder": "^24.0.0"
   },
   "build": {
-    "appId": "com.magicdippyegg.discordwrapper",
-    "productName": "Discord",
+    "appId": "com.magicdippyegg.discord",
+    "productName": "Discord Wrapper",
     "copyright": "Copyright © 2025 ${author}",
     "directories": {
       "output": "dist"
