@@ -1,6 +1,6 @@
 {
   "name": "discord",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Electron Powered Discord Client For Older Systems",
   "main": "main.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "build": {
     "appId": "com.magicdippyegg.discord",
-    "productName": "Discord Wrapper",
+    "productName": "Discord",
     "copyright": "Copyright © 2025 ${author}",
     "directories": {
       "output": "dist"
