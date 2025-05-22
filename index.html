@@ -1,45 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A lightweight, custom-built Discord Electron wrapper for Windows 7 and 8/8.1." />
-  <title>Discord Electron for Older Systems</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Discord Electron for Older Systems</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Whitney+2:wght@400;600;700&display=swap');
+
+  :root {
+    --blur-bg: rgba(32, 34, 37, 0.6);
+    --primary: #5865F2;
+    --primary-hover: #4752C4;
+    --text-light: #FFFFFF;
+    --text-muted: #B9BBBE;
+    --background: #0D0D15;
+    --surface: rgba(44, 47, 51, 0.7);
+    --shadow-light: rgba(0, 0, 0, 0.4);
+    --radius: 15px;
+    --font-family: 'Whitney 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background: linear-gradient(135deg, #404eed 0%, #202436 100%);
+    color: var(--text-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover, a:focus {
+    color: var(--primary-hover);
+    outline: none;
+  }
+
+  /* Container */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero Section */
+  header.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--blur-bg);
+    margin: 40px 24px 60px;
+    border-radius: var(--radius);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.5),
+      inset 0 0 60px rgba(88, 101, 242, 0.25);
+    backdrop-filter: saturate(180%) blur(18px);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
+    padding: 80px 40px;
+    position: relative;
+  }
+  header.hero h1 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 20px;
+  }
+  header.hero p {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 48px;
+  }
+  header.hero a.button {
+    font-weight: 700;
+    font-size: 1.15rem;
+    background: var(--primary);
+    color: var(--text-light);
+    padding: 18px 48px;
+    border-radius: 30px;
+    box-shadow: 0 8px 20px rgba(88, 101, 242, 0.6);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    display: inline-block;
+  }
+  header.hero a.button:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 12px 30px rgba(71, 82, 196, 0.7);
+  }
+
+  /* Scroll Arrow */
+  .scroll-arrow {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 32px;
+    animation: bounce 2s infinite;
+    cursor: default;
+  }
+  .scroll-arrow svg {
+    fill: var(--primary);
+    filter: drop-shadow(0 0 2px rgba(88, 101, 242, 0.8));
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(10px);
+    }
+  }
+
+  /* Main Content */
+  main {
+    max-width: 960px;
+    margin: 0 auto 80px;
+    padding: 0 24px;
+  }
+  section.card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 20px var(--shadow-light);
+    padding: 40px 36px;
+    margin-bottom: 48px;
+    color: var(--text-light);
+  }
+  section.card h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 0 0 18px;
+    color: var(--primary);
+  }
+  section.card p {
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  section.card p a {
+    font-weight: 600;
+    color: var(--primary);
+  }
+  section.card p a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 36px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+  footer strong a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  footer strong a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header.hero h1 {
+      font-size: 2.6rem;
+    }
+    header.hero p {
+      font-size: 1rem;
+      max-width: 100%;
+    }
+    main {
+      padding: 0 16px;
+    }
+    section.card {
+      padding: 32px 24px;
+    }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Discord Electron for Older Systems</h1>
-    <p>A simple, efficient Discord wrapper built using Electron for legacy Windows systems.</p>
+  <header class="hero" role="banner">
+    <div class="container">
+      <h1>Discord Electron for Older Systems</h1>
+      <p>Lightweight Discord wrapper built to run smoothly on Windows 7 and 8/8.1 — keeping your chat alive.</p>
+      <a href="https://github.com/MagicDippyEgg/discord-electron-oldersystems/releases" class="button" target="_blank" rel="noopener">Download Latest Build</a>
+    </div>
+    <div class="scroll-arrow" aria-hidden="true">
+      <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 16l-6-6h12z"/>
+      </svg>
+    </div>
   </header>
+  <main role="main" class="container">
+    <section class="card">
+      <h2>Why This Exists</h2>
+      <p>Discord has dropped support for legacy Windows versions. This Electron wrapper keeps your favorite chat app alive, optimized to run on older systems without sacrificing features.</p>
+    </section>
 
-  <section>
-    <h2>Why This Exists</h2>
-    <p>Modern Discord clients no longer support Windows 7 or 8/8.1. This project gives you a working, standalone app that uses the web version of Discord via Electron, designed to work on those older platforms.</p>
-  </section>
+    <section class="card">
+      <h2>Get the Source</h2>
+      <p>Curious about how it works? Explore the full source code or contribute to the project on GitHub.</p>
+      <p><a href="https://github.com/MagicDippyEgg/discord-electron-oldersystems" target="_blank" rel="noopener">🔧 View Source on GitHub</a></p>
+    </section>
+  </main>
 
-  <section>
-    <h2>Download</h2>
-    <p>You can download the latest release for 32-bit and 64-bit systems from the GitHub Releases page:</p>
-    <p>
-      <a href="https://github.com/MagicDippyEgg/discord-electron-oldersystems/releases" target="_blank">
-        📦 View GitHub Releases
-      </a>
-    </p>
-  </section>
-
-  <section>
-    <h2>Source Code</h2>
-    <p>Want to look under the hood or contribute? Check out the source code on GitHub:</p>
-    <p>
-      <a href="https://github.com/MagicDippyEgg/discord-electron-oldersystems" target="_blank">
-        🔧 View Source on GitHub
-      </a>
-    </p>
-  </section>
-
-  <footer>
-    <p>Made by <strong>MagicDippyEgg</strong> with love and frustration 💻🐣</p>
+  <footer role="contentinfo">
+    <p>Made by <strong><a href="https://github.com/MagicDippyEgg" target="_blank" rel="noopener">MagicDippyEgg</a></strong> with love and frustration 💻🐣</p>
   </footer>
 </body>
 </html>
