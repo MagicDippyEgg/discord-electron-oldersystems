@@ -1,50 +1,51 @@
 {
-  "name": "discord",
-  "version": "1.0.2",
-  "description": "A Electron Powered Discord Client For Older Systems",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron .",
-    "build": "electron-builder --win --x64 --ia32",
-    "dist": "electron-builder"
-  },
-  "keywords": [
-    "Electron",
-    "Discord",
-    "Wrapper"
-  ],
-  "author": "Kai (Magic Dippy Egg)",
-  "license": "MIT",
-  "devDependencies": {
-    "electron": "^29.0.0",
-    "electron-builder": "^24.0.0"
-  },
-  "build": {
-    "appId": "com.magicdippyegg.discord",
-    "productName": "Discord",
-    "copyright": "Copyright © 2025 ${author}",
-    "directories": {
-      "output": "dist"
-    },
-    "files": [
-      "main.js",
-      "package.json",
-      "icon.ico"
-    ],
-    "win": {
-      "target": [
-        "nsis",
-        "zip"
+      "name": "discord",
+      "version": "1.0.3",
+      "description": "A Electron Powered Discord Client For Older Systems",
+      "main": "main.js",
+      "scripts": {
+        "start": "electron .",
+        "build": "electron-builder --win --x64 --ia32",
+        "dist": "electron-builder"
+      },
+      "keywords": [
+        "Electron",
+        "Discord",
+        "Wrapper"
       ],
-      "icon": "icon.ico"
-    },
-    "nsis": {
-      "installerIcon": "icon.ico",
-      "uninstallerIcon": "icon.ico",
-      "uninstallDisplayName": "Discord Uninstaller",
-      "license": "LICENSE.md",
-      "allowToChangeInstallationDirectory": true,
-      "oneClick": false
+      "author": "Kai (Magic Dippy Egg)",
+      "license": "MIT",
+      "devDependencies": {
+        "electron": "^29.0.0",
+        "electron-builder": "^24.0.0"
+      },
+      "build": {
+        "appId": "com.magicdippyegg.discord",
+        "productName": "Discord",
+        "copyright": "Copyright © 2025 ${author}",
+        "directories": {
+          "output": "dist"
+        },
+        "files": [
+          "main.js",
+          "package.json",
+          "icon.ico",
+          "preload.js"
+        ],
+        "win": {
+          "target": [
+            "nsis",
+            "zip"
+          ],
+          "icon": "icon.ico"
+        },
+        "nsis": {
+          "installerIcon": "icon.ico",
+          "uninstallerIcon": "icon.ico",
+          "uninstallDisplayName": "Discord Uninstaller",
+          "license": "LICENSE.md",
+          "allowToChangeInstallationDirectory": true,
+          "oneClick": false
+        }
+      }
     }
-  }
-}
