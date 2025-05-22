@@ -137,18 +137,22 @@
       flex-direction: column; /* Stack vertically on smaller screens */
       text-align: center;
     }
-    .four-oh-four-image {
-      width: 100%; /* Image takes full width */
-      max-width: 500px; /* Limit max width even when stacked */
-      height: 300px;
-    }
-    .four-oh-four-text h1 {
-      font-size: 2.5rem;
-    }
-    .four-oh-four-text p {
-      font-size: 1rem;
-    }
-  }
+.four-oh-four-image {
+  flex: 0 0 auto;
+  width: 500px;
+  height: 350px;
+  background-color: #36393F;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('https://magicdippyegg.github.io/discord-electron-oldersystems/404.png'); /* Update this line */
+}
 
   @media (max-width: 500px) {
     .four-oh-four-text h1 {
@@ -175,7 +179,6 @@
           <a href="https://magicdippyegg.github.io/discord-electron-oldersystems/">Go to Homepage</a> </div>
       </div>
       <div class="four-oh-four-image">
-        <p>Your awesome 404 illustration goes here!</p>
       </div>
     </div>
   </div>
