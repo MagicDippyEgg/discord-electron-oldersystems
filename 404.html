@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 - Wrong Turn!</title>
+<link rel="icon" type="image/png" href="https://magicdippyegg.github.io/discord-electron-oldersystems/icon.png" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Whitney+2:wght@400;600;700&display=swap');
+
+  :root {
+    --primary: #5865F2;
+    --primary-hover: #4752C4;
+    --text-light: #FFFFFF;
+    --text-muted: #B9BBBE;
+    --background-dark: #202225; /* Darker background similar to Discord */
+    --font-family: 'Whitney 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-dark); /* Solid dark background */
+    color: var(--text-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover, a:focus {
+    color: var(--primary-hover);
+    outline: none;
+    text-decoration: underline; /* Add underline on hover for links */
+  }
+
+  /* Main content container for 404 */
+  .four-oh-four-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 24px;
+    max-width: 1200px; /* Adjust max-width as needed for content */
+    margin: 0 auto;
+  }
+
+  .four-oh-four-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    align-items: center;
+    gap: 40px; /* Space between text and image */
+  }
+
+  .four-oh-four-text {
+    flex: 1; /* Take up available space */
+    min-width: 300px; /* Ensure text doesn't get too narrow */
+  }
+
+  .four-oh-four-text h1 {
+    font-size: 3.2rem; /* Slightly larger for impact */
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 20px;
+    color: var(--primary); /* Discord's bold headings are often blue */
+    text-transform: uppercase; /* Match Discord's style */
+  }
+
+  .four-oh-four-text p {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--text-light); /* Keep text light for contrast */
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .four-oh-four-links a {
+    display: block; /* Each link on its own line */
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .four-oh-four-image {
+    flex: 0 0 auto; /* Don't grow, shrink, or change size */
+    width: 500px; /* Fixed width for the image container */
+    height: 350px; /* Fixed height for the image container */
+    background-color: #36393F; /* A placeholder background if no image */
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* This is where you'd put your specific 404 image */
+    background-image: url('https://magicdippyegg.github.io/discord-electron-oldersystems/your-404-image.png'); /* IMPORTANT: Replace this with your actual image path */
+  }
+
+  /* Footer - kept from your original site */
+  footer {
+    text-align: center;
+    padding: 36px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.9rem;
+    user-select: none;
+    margin-top: auto; /* Pushes footer to the bottom */
+  }
+  footer strong a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  footer strong a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 900px) {
+    .four-oh-four-content {
+      flex-direction: column; /* Stack vertically on smaller screens */
+      text-align: center;
+    }
+    .four-oh-four-image {
+      width: 100%; /* Image takes full width */
+      max-width: 500px; /* Limit max width even when stacked */
+      height: 300px;
+    }
+    .four-oh-four-text h1 {
+      font-size: 2.5rem;
+    }
+    .four-oh-four-text p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .four-oh-four-text h1 {
+      font-size: 2rem;
+    }
+    .four-oh-four-text p {
+      font-size: 0.9rem;
+    }
+    .four-oh-four-image {
+      height: 250px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="four-oh-four-container">
+    <div class="four-oh-four-content">
+      <div class="four-oh-four-text">
+        <h1>WRONG TURN?</h1>
+        <p>You look lost, stranger. You know what helps when you're lost? A piping hot bowl of noodles. Take a seat, we're frantically at work here cooking up something good. Oh, you need something to read? These might help you:</p>
+        <div class="four-oh-four-links">
+          <a href="https://twitter.com/magicdippy" target="_blank" rel="noopener">@MagicDippy</a>
+          <a href="https://github.com/MagicDippyEgg/discord-electron-oldersystems/issues" target="_blank" rel="noopener">GitHub Issues</a>
+          <a href="https://magicdippyegg.github.io/discord-electron-oldersystems/">Go to Homepage</a> </div>
+      </div>
+      <div class="four-oh-four-image">
+        <p>Your awesome 404 illustration goes here!</p>
+      </div>
+    </div>
+  </div>
+
+  <footer role="contentinfo">
+    <p>Made by <strong><a href="https://github.com/MagicDippyEgg" target="_blank" rel="noopener">MagicDippyEgg</a></strong> with love and frustration 💻🐣</p>
+  </footer>
+</body>
+</html>
