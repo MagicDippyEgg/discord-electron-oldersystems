@@ -13,7 +13,7 @@ This project provides a dedicated Discord client for systems that may no longer 
 You can find the latest releases (including `.exe` installers and `.zip` portable versions) on the [Releases page](https://github.com/MagicDippyEgg/discord-electron-oldersystems/releases) of this repository.
 
 1.  Go to the [Releases page](https://github.com/MagicDippyEgg/discord-electron-oldersystems/releases).
-2.  Download the latest `Discord Setup X.X.X.exe` for a standard installer, or the `Discord-Wrapper-win.zip` for a portable version.
+2.  Download the latest `Discord.Setup.X.X.X.exe` for a standard installer, or the `Discord-X.X.X-win.zip` for a portable version.
 3.  Run the installer or extract the zip file to your desired location.
 
 
