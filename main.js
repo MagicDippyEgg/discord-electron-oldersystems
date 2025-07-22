@@ -24,9 +24,9 @@ function createWindow() {
     }
   });
 
-  // Load app.discord.com directly.
+  // Load discord.com/app directly.
   // This makes the Electron app act as a wrapper for the Discord web app.
-  mainWindow.loadURL('https://app.discord.com');
+  mainWindow.loadURL('https://discord.com/app');
 
   // Open external links in the default browser, not within the Electron app.
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
