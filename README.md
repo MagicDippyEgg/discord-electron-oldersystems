@@ -1,11 +1,11 @@
 # Discord Client for Older Systems
 
-This project provides a dedicated Discord client for systems that may no longer fully support the official Discord application, such as Windows 7, Windows 8, and other older operating systems. It aims to offer a familiar Discord experience by utilizing the `app.discord.com` web interface within a standalone desktop application.
+This project provides a dedicated Discord client for systems that may no longer fully support the official Discord application, such as Windows 7, Windows 8, and other older operating systems. It aims to offer a familiar Discord experience by utilizing the `discord.com/app` web interface within a standalone desktop application.
 
 ## Features
 
 * Dedicated desktop window for Discord.
-* Uses `app.discord.com` for the core experience.
+* Uses `discord.com/app` for the core experience.
 * Automated builds for 32-bit and 64-bit Windows executables via GitHub Actions.
 
 ## Installation
